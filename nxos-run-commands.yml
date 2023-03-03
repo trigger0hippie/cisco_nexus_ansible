@@ -1,0 +1,14 @@
+
+
+tasks:
+  - name: Configure top level configuration and save it
+    cisco.nxos.nxos_config:
+      lines: 
+        - feature ospf
+        - feature bgp
+        - feature pim
+        - feature fabric forwarding
+        - feature interface-vlan
+        - feature vn-segment-vlan-based
+        - feature nv overlay
+      save_when: modified
