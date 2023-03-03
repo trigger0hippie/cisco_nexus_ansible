@@ -1,5 +1,5 @@
 - name: CISCO NXOS RUN COMMANDS
-  hosts: all
+  hosts: sw_nxos
   gather_facts: false
   ignore_unreachable: yes
   tasks:
