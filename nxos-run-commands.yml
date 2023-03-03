@@ -14,11 +14,10 @@
           - feature vn-segment-vlan-based
           - feature nv overlay
         save_when: modified
-    - name: Configure mgmt interface
+    - name: Configure hostname
       cisco.nxos.nxos_config:
         lines: 
-          - ip address dhcp
-        parents: interface mgmt0
+          - hostname Nexus-{{ inventory_hostname }}
         save_when: modified
     - name: configurable backup path
       cisco.nxos.nxos_config:
