@@ -4,16 +4,18 @@
   ignore_unreachable: yes
   tasks:
     - name: Configure features
-      cisco.nxos.nxos_config:
-        lines: 
-          - feature ospf
-          - feature bgp
-          - feature pim
-          - feature fabric forwarding
-          - feature interface-vlan
-          - feature vn-segment-vlan-based
-          - feature nv overlay
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
         save_when: modified
+        with_items:
+         - "ospf"
+         - "bgp"
+         - "pim"
+         - "fabric forwarding"
+         - "interface-vlan"
+         - "vn-segment-vlan-based"
+         - "nv overlay"
     - name: Configure hostname
       cisco.nxos.nxos_config:
         lines: 
