@@ -8,14 +8,14 @@
         feature: "{{ item }}"
         state: enabled
         save_when: modified
-        with_items:
-         - "ospf"
-         - "bgp"
-         - "pim"
-         - "fabric forwarding"
-         - "interface-vlan"
-         - "vn-segment-vlan-based"
-         - "nv overlay"
+      with_items:
+        - "ospf"
+        - "bgp"
+        - "pim"
+        - "fabric forwarding"
+        - "interface-vlan"
+        - "vn-segment-vlan-based"
+        - "nv overlay"
     - name: Configure hostname
       cisco.nxos.nxos_config:
         lines: 
