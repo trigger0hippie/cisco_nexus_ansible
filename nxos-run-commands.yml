@@ -3,7 +3,7 @@
   gather_facts: false
   ignore_unreachable: yes
   tasks:
-    - name: Configure top level configuration and save it
+    - name: Configure features
       cisco.nxos.nxos_config:
         lines: 
           - feature ospf
@@ -14,3 +14,14 @@
           - feature vn-segment-vlan-based
           - feature nv overlay
         save_when: modified
+    - name: Configure mgmt interface
+      cisco.nxos.nxos_config:
+        lines: 
+          - ip address dhcp
+        parents: interface mgmt0
+        save_when: modified
+    - name: configurable backup path
+      cisco.nxos.nxos_config:
+        backup: yes
+        backup_options:
+          dir_path: /awx-output-folder/nexus-eve-ng/
